@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IM&amp;P — OCT25-APR26 — SHOT ON FILM</title>
+
+<!--
+  ============================================================
+  HOW TO CUSTOMIZE THIS PAGE (read me first!)
+  ============================================================
+  1. PHOTOS: already wired up! Each <div class="ph"> pulls its image
+     directly from the repo root, numbered 1.jpg through 15.jpg in the
+     order they appear on the page. Just make sure your photo files are
+     named 1.jpg, 2.jpg, 3.jpg... and sitting next to this index.html.
+     Need more/fewer than 15? Search "PHOTO SLOT" to add or remove one,
+     following the same numbering pattern.
+
+  2. LAYOUT RHYTHM: hero -> duo (2/3, the only side-by-side pair) ->
+     strict left/right alternation for everything else -> ending on a
+     single centered photo (row-center) as the very last image.
+
+  3. TEXT: search "EDIT ME" for the title and dates in the hero.
+
+  4. FONTS: this uses free Google Fonts as look-alikes for Rockwell
+     Condensed and Haettenschweiler (both are commercial fonts).
+     Title/headline text -> Roboto Slab (bold, condensed via CSS)
+     Yellow labels/signature -> Oswald (bold)
+     If you later get a licensed copy of the originals (e.g. via
+     Adobe Fonts), just swap the font-family names in the CSS above.
+
+  5. TO PUBLISH ON GITHUB PAGES:
+     - create a repo (e.g. "team-goodbye"), upload this file + a /photos folder
+     - Settings > Pages > set source to your main branch
+     - live link: yourusername.github.io/team-goodbye
+  ============================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=Oswald:wght@500;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --blue: #004FFF;
+    --ink: #262626;
+    --yellow: #FFFFAE;
+    --cream: #F4F1E8;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--blue);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    display: grid;
+    grid-template-columns: 469px 1fr;
+    align-items: start;
+    min-height: 92vh;
+    padding: 60px 40px 60px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    padding-left: 40px;
+    margin-top: 140px;
+  }
+
+  .hero-title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-stretch: condensed;
+    font-size: clamp(64px, 9vw, 130px);
+    line-height: 0.85;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta span {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(14px, 1.6vw, 20px);
+    letter-spacing: 0.06em;
+    color: var(--yellow);
+    text-transform: uppercase;
+  }
+
+  .hero-photo-wrap {
+    max-width: 900px;
+    margin-top: 100px;
+  }
+
+  .hero-photo-wrap .ph { aspect-ratio: 3024 / 1383; width: 100%; }
+
+  /* ---------- PHOTOS (shared) ---------- */
+
+  .ph {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s ease;
+  }
+  .ph:hover {
+    transform: scale(1.035);
+    z-index: 5;
+  }
+
+  .ph img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .ph-fill {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(135deg, #0f22c9, #0f22c9 12px, #1836e0 12px, #1836e0 24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--cream);
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---------- ROWS ---------- */
+
+  .row {
+    padding: 40px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .row-big { display: flex; }
+  .row-big.left { justify-content: flex-start; }
+  .row-big.right { justify-content: flex-end; }
+
+  .row-big .ph {
+    width: min(58vw, 780px);
+    aspect-ratio: 4/3;
+  }
+
+  .row-duo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .row-duo .ph {
+    width: min(32vw, 460px);
+    aspect-ratio: 4/3;
+  }
+
+  .row-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .row-center .ph {
+    width: min(46vw, 620px);
+    aspect-ratio: 4/3;
+  }
+
+  /* ---------- FINAL SPACING ---------- */
+
+  .row-center {
+    padding-bottom: 100px;
+  }
+
+  footer {
+    text-align: left;
+    padding: 0 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(10,10,10,0.55);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .hero { display: flex; flex-direction: column; align-items: flex-start; min-height: auto; padding: 80px 24px 50px; gap: 34px; }
+    .hero-text { padding-left: 0; }
+    .hero-photo-wrap { max-width: 100%; margin-top: 0; }
+    .row { padding: 26px 24px; }
+    .row-big .ph { width: 100%; }
+    .row-duo { gap: 20px; }
+    .row-duo .ph { width: calc(50% - 10px); }
+    .row-center .ph { width: 100%; }
+    footer { padding: 0 24px 40px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1 class="hero-title"><!-- EDIT ME -->IM&amp;P</h1>
+      <div class="hero-meta">
+        <span>OCT25&ndash;APR26</span>
+        <span>Shot on film</span>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <!-- PHOTO SLOT: hero -->
+      <div class="ph"><img src="1.jpg" alt="Team photo 1"></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <!-- duo right after the hero photo: the only side-by-side pair -->
+    <div class="row row-duo">
+      <!-- PHOTO SLOT 2 -->
+      <div class="ph"><img src="2.jpg" alt="Team photo 2"></div>
+      <!-- PHOTO SLOT 3 -->
+      <div class="ph"><img src="3.jpg" alt="Team photo 3"></div>
+    </div>
+
+    <!-- from here on: strict left / right alternation -->
+    <div class="row row-big left">
+      <!-- PHOTO SLOT 4 -->
+      <div class="ph"><img src="4.jpg" alt="Team photo 4"></div>
+    </div>
+
+    <div class="row row-big right">
+      <!-- PHOTO SLOT 5 -->
+      <div class="ph"><img src="5.jpg" alt="Team photo 5"></div>
+    </div>
+
+    <div class="row row-big left">
+      <!-- PHOTO SLOT 6 -->
+      <div class="ph"><img src="6.jpg" alt="Team photo 6"></div>
+    </div>
+
+    <div class="row row-big right">
+      <!-- PHOTO SLOT 7 -->
+      <div class="ph"><img src="7.jpg" alt="Team photo 7"></div>
+    </div>
+
+    <div class="row row-big left">
+      <!-- PHOTO SLOT 8 -->
+      <div class="ph"><img src="8.jpg" alt="Team photo 8"></div>
+    </div>
+
+    <div class="row row-big right">
+      <!-- PHOTO SLOT 9 -->
+      <div class="ph"><img src="9.jpg" alt="Team photo 9"></div>
+    </div>
+
+    <div class="row row-big left">
+      <!-- PHOTO SLOT 10 -->
+      <div class="ph"><img src="10.jpg" alt="Team photo 10"></div>
+    </div>
+
+    <div class="row row-big right">
+      <!-- PHOTO SLOT 11 -->
+      <div class="ph"><img src="11.jpg" alt="Team photo 11"></div>
+    </div>
+
+    <div class="row row-big left">
+      <!-- PHOTO SLOT 12 -->
+      <div class="ph"><img src="12.jpg" alt="Team photo 12"></div>
+    </div>
+
+    <div class="row row-big right">
+      <!-- PHOTO SLOT 13 -->
+      <div class="ph"><img src="13.jpg" alt="Team photo 13"></div>
+    </div>
+
+    <div class="row row-big left">
+      <!-- PHOTO SLOT 14 -->
+      <div class="ph"><img src="14.jpg" alt="Team photo 14"></div>
+    </div>
+
+    <!-- final photo: single, centered -->
+    <div class="row row-center">
+      <!-- PHOTO SLOT 15 -->
+      <div class="ph"><img src="15.jpg" alt="Team photo 15"></div>
+    </div>
+
+    <!--
+      Need more photos? Only 2/3 are meant to sit side by side.
+      Everything else alternates row-big left / row-big right, and
+      the very last photo should stay row-center. Copy the relevant
+      block to add more, keeping that rhythm.
+    -->
+
+  </div>
+
+  <footer>IM&amp;P &middot; Oct'25 &ndash; Apr'26 &middot; developed on 35mm</footer>
+
+</body>
+</html>
